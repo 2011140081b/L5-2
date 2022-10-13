@@ -1,0 +1,13 @@
+<p>
+<strong>message:</strong>
+<%= @tweet.message %>
+</p>
+
+<p>
+<strong>tdate:</strong>
+<%=(Time.current.min - @tweet.tdate.min).abs  %>分前
+</p>
+
+
+
+<%= link_to 'Back', '/' %>
