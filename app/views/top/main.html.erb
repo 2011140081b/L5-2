@@ -1,14 +1,21 @@
 メインページへようこそ。
-
-
 <% @tweets.each do |e| %>
-<p><%= e.message %></p>
-<%= link_to 'いいね', likes_path(tweet_id: e.id), method: :post %>
-<%= @count %>
-<%= link_to '削除', "/tweets/#{e.id}", method: :delete %>
-<%= link_to 'いいね削除', like_path(e), method: :delete %>
+    <p><%= e.message %></p>
+    
+   
+            <%= link_to 'いいね', likes_path(tweet_id: e.id), method: :post %>
+            <%= link_to '削除', "/tweets/#{e.id}", method: :delete %>
+    
+            <%= link_to 'いいね削除', like_path(e), method: :delete %>
+           
+    
+    
 <% end %>
 
 <p><%= link_to '投稿', '/tweets/new' %></p>
 
-<%= link_to 'ログアウト', '/top/logout' %>
+      <%= link_to 'ログアウト', '/top/logout' %>
+  
+      <% link_to 'ログイン', top_main_path %>
+  
+  

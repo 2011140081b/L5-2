@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @user = User.all
   end
   
   def show
@@ -12,21 +12,17 @@ class UsersController < ApplicationController
   end
   
   def create
-        uid = params[:user][:uid]
-        pass = BCrypt::Password.create(params[:user][:pass])
-        
-      
-        
-        
+        @user = User.new(
+        uid: params[:user][:uid],
+        password: params[:user][:password],
+        password_confirmation: params[:user][:password_confirmation])
         if  User.find_by(uid: params[:user][:uid]) ==nil
-          @user = User.new(uid: uid ,pass: pass )
           @user.save
           redirect_to '/' #=>一覧ページにリダイレクトする
         else
           render 'error'
         end
           
-        
         
   end
   
@@ -45,6 +41,7 @@ class UsersController < ApplicationController
     
     def destroy
         user = User.find(params[:id])
+       
         user.destroy
         redirect_to '/'
     end

@@ -1,6 +1,8 @@
 <% @tweets.each do |e| %>
 <p><%= e.message %></p>
+<% if session [:login_uid] %>
 <%= link_to 'いいね', likes_path(tweet_id: e.id), method: :post %>
+<% if @count > 0 %>
 <%= link_to 'いいね削除', like_path(e), method: :delete %>
 
 <% end %>

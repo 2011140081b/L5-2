@@ -14,9 +14,10 @@ class TweetsController < ApplicationController
   
   def create
         message = params[:tweet][:message]
+        
         #tdate = Time.current
-      
-        @tweet = Tweet.new(message: message )
+        @tweet = Tweet.new(message: message)
+        logger.debug(message)
         if @tweet.save
           redirect_to '/top/main' #=>一覧ページにリダイレクトする
         else

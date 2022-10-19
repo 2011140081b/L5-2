@@ -3,7 +3,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :uid
       t.string :pass
-      t.integer :age
+      t.integer :user_id
+      
 
       t.timestamps
     end
